@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ServerHandler` struct in crate `jsonrpc_http_server`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ServerHandler">
+
+    <title>jsonrpc_http_server::ServerHandler - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>jsonrpc_http_server</a></p><script>window.sidebarCurrent = {name: 'ServerHandler', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>jsonrpc_http_server</a>::<wbr><a class='struct' href=''>ServerHandler</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/jsonrpc_http_server/handler.rs.html#18-23' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct ServerHandler&lt;M:&nbsp;<a class='trait' href='../jsonrpc_core/calls/trait.Metadata.html' title='jsonrpc_core::calls::Metadata'>Metadata</a>&nbsp;=&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, S:&nbsp;<a class='trait' href='../jsonrpc_core/middleware/trait.Middleware.html' title='jsonrpc_core::middleware::Middleware'>Middleware</a>&lt;M&gt;&nbsp;=&nbsp;<a class='struct' href='../jsonrpc_core/middleware/struct.Noop.html' title='jsonrpc_core::middleware::Noop'>NoopMiddleware</a>&gt; { /* fields omitted */ }</pre><div class='docblock'><p>jsonrpc http request handler.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;M:&nbsp;<a class='trait' href='../jsonrpc_core/calls/trait.Metadata.html' title='jsonrpc_core::calls::Metadata'>Metadata</a>, S:&nbsp;<a class='trait' href='../jsonrpc_core/middleware/trait.Middleware.html' title='jsonrpc_core::middleware::Middleware'>Middleware</a>&lt;M&gt;&gt; <a class='struct' href='../jsonrpc_http_server/struct.ServerHandler.html' title='jsonrpc_http_server::ServerHandler'>ServerHandler</a>&lt;M, S&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/jsonrpc_http_server/handler.rs.html#25-40' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(jsonrpc_handler: <a class='struct' href='../jsonrpc_http_server/struct.Rpc.html' title='jsonrpc_http_server::Rpc'>Rpc</a>&lt;M, S&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cors_domains: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='enum' href='../jsonrpc_http_server/enum.AccessControlAllowOrigin.html' title='jsonrpc_http_server::AccessControlAllowOrigin'>AccessControlAllowOrigin</a>&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; allowed_hosts: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../jsonrpc_http_server/struct.Host.html' title='jsonrpc_http_server::Host'>Host</a>&gt;&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; middleware: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='trait' href='../jsonrpc_http_server/trait.RequestMiddleware.html' title='jsonrpc_http_server::RequestMiddleware'>RequestMiddleware</a>&gt;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; Self</code></span></h4>
+<div class='docblock'><p>Create new request handler.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;M:&nbsp;<a class='trait' href='../jsonrpc_core/calls/trait.Metadata.html' title='jsonrpc_core::calls::Metadata'>Metadata</a>, S:&nbsp;<a class='trait' href='../jsonrpc_core/middleware/trait.Middleware.html' title='jsonrpc_core::middleware::Middleware'>Middleware</a>&lt;M&gt;&gt; <a class='trait' href='../tokio_service/trait.Service.html' title='tokio_service::Service'>Service</a> for <a class='struct' href='../jsonrpc_http_server/struct.ServerHandler.html' title='jsonrpc_http_server::ServerHandler'>ServerHandler</a>&lt;M, S&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/jsonrpc_http_server/handler.rs.html#42-81' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Request' class='type'><span id='Request.t' class='invisible'><code>type <a href='../tokio_service/trait.Service.html#associatedtype.Request' class='type'>Request</a> = <a class='struct' href='../hyper/server/request/struct.Request.html' title='hyper::server::request::Request'>Request</a></code></span></h4>
+<div class='docblock'><p>Requests handled by the service.</p>
+</div><h4 id='associatedtype.Response' class='type'><span id='Response.t' class='invisible'><code>type <a href='../tokio_service/trait.Service.html#associatedtype.Response' class='type'>Response</a> = <a class='struct' href='../hyper/server/response/struct.Response.html' title='hyper::server::response::Response'>Response</a></code></span></h4>
+<div class='docblock'><p>Responses given by the service.</p>
+</div><h4 id='associatedtype.Error' class='type'><span id='Error.t' class='invisible'><code>type <a href='../tokio_service/trait.Service.html#associatedtype.Error' class='type'>Error</a> = <a class='enum' href='../hyper/error/enum.Error.html' title='hyper::error::Error'>Error</a></code></span></h4>
+<div class='docblock'><p>Errors produced by the service.</p>
+</div><h4 id='associatedtype.Future' class='type'><span id='Future.t' class='invisible'><code>type <a href='../tokio_service/trait.Service.html#associatedtype.Future' class='type'>Future</a> = Handler&lt;M, S&gt;</code></span></h4>
+<div class='docblock'><p>The future response value.</p>
+</div><h4 id='method.call' class='method'><span id='call.v' class='invisible'><code>fn <a href='../tokio_service/trait.Service.html#tymethod.call' class='fnname'>call</a>(&amp;self, request: Self::<a class='trait' href='../tokio_service/trait.Service.html' title='tokio_service::Service'>Request</a>) -&gt; Self::<a class='trait' href='../tokio_service/trait.Service.html' title='tokio_service::Service'>Future</a></code></span></h4>
+<div class='docblock'><p>Process the request and return the response asynchronously.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "jsonrpc_http_server";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

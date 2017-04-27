@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BlockChainDatabase` struct in crate `db`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BlockChainDatabase">
+
+    <title>db::BlockChainDatabase - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>db</a></p><script>window.sidebarCurrent = {name: 'BlockChainDatabase', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>db</a>::<wbr><a class='struct' href=''>BlockChainDatabase</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/db/block_chain_db.rs.html#42-45' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct BlockChainDatabase&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span> { /* fields omitted */ }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;<a class='struct' href='../db/kv/struct.AutoFlushingOverlayDatabase.html' title='db::kv::AutoFlushingOverlayDatabase'>AutoFlushingOverlayDatabase</a>&lt;<a class='struct' href='../db/kv/struct.DiskDatabase.html' title='db::kv::DiskDatabase'>DiskDatabase</a>&gt;&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#61-81' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.open_at_path' class='method'><span id='open_at_path.v' class='invisible'><code>fn <a href='#method.open_at_path' class='fnname'>open_at_path</a>&lt;P&gt;(path: P, total_cache: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt; <span class='where fmt-newline'>where P: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/std/path/struct.Path.html' title='std::path::Path'>Path</a>&gt;</span></code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;<a class='struct' href='../db/kv/struct.MemoryDatabase.html' title='db::kv::MemoryDatabase'>MemoryDatabase</a>&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#83-93' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.init_test_chain' class='method'><span id='init_test_chain.v' class='invisible'><code>fn <a href='#method.init_test_chain' class='fnname'>init_test_chain</a>(blocks: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../chain/indexed_block/struct.IndexedBlock.html' title='chain::indexed_block::IndexedBlock'>IndexedBlock</a>&gt;) -&gt; Self</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;<a class='struct' href='../db/kv/struct.AutoFlushingOverlayDatabase.html' title='db::kv::AutoFlushingOverlayDatabase'>AutoFlushingOverlayDatabase</a>&lt;T&gt;&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#95-104' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.open_with_cache' class='method'><span id='open_with_cache.v' class='invisible'><code>fn <a href='#method.open_with_cache' class='fnname'>open_with_cache</a>(db: T) -&gt; Self</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#106-373' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.open' class='method'><span id='open.v' class='invisible'><code>fn <a href='#method.open' class='fnname'>open</a>(db: T) -&gt; Self</code></span></h4>
+<h4 id='method.best_block' class='method'><span id='best_block.v' class='invisible'><code>fn <a href='#method.best_block' class='fnname'>best_block</a>(&amp;self) -&gt; <a class='struct' href='../db/struct.BestBlock.html' title='db::BestBlock'>BestBlock</a></code></span></h4>
+<h4 id='method.fork' class='method'><span id='fork.v' class='invisible'><code>fn <a href='#method.fork' class='fnname'>fork</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; side_chain: <a class='struct' href='../db/struct.SideChainOrigin.html' title='db::SideChainOrigin'>SideChainOrigin</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../db/struct.ForkChainDatabase.html' title='db::ForkChainDatabase'>ForkChainDatabase</a>&lt;T&gt;, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<h4 id='method.switch_to_fork' class='method'><span id='switch_to_fork.v' class='invisible'><code>fn <a href='#method.switch_to_fork' class='fnname'>switch_to_fork</a>(&amp;self, fork: <a class='struct' href='../db/struct.ForkChainDatabase.html' title='db::ForkChainDatabase'>ForkChainDatabase</a>&lt;T&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<h4 id='method.block_origin' class='method'><span id='block_origin.v' class='invisible'><code>fn <a href='#method.block_origin' class='fnname'>block_origin</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; header: &amp;<a class='struct' href='../chain/indexed_header/struct.IndexedBlockHeader.html' title='chain::indexed_header::IndexedBlockHeader'>IndexedBlockHeader</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='../db/enum.BlockOrigin.html' title='db::BlockOrigin'>BlockOrigin</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<h4 id='method.insert' class='method'><span id='insert.v' class='invisible'><code>fn <a href='#method.insert' class='fnname'>insert</a>(&amp;self, block: &amp;<a class='struct' href='../chain/indexed_block/struct.IndexedBlock.html' title='chain::indexed_block::IndexedBlock'>IndexedBlock</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<h4 id='method.canonize' class='method'><span id='canonize.v' class='invisible'><code>fn <a href='#method.canonize' class='fnname'>canonize</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Marks block as a new best block.
+Block must be already inserted into db, and it&#39;s parent must be current best block.
+Updates meta data.</p>
+</div><h4 id='method.decanonize' class='method'><span id='decanonize.v' class='invisible'><code>fn <a href='#method.decanonize' class='fnname'>decanonize</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.BlockHeaderProvider.html' title='db::BlockHeaderProvider'>BlockHeaderProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#375-386' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.block_header_bytes' class='method'><span id='block_header_bytes.v' class='invisible'><code>fn <a href='../db/trait.BlockHeaderProvider.html#tymethod.block_header_bytes' class='fnname'>block_header_bytes</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../db/bytes/struct.Bytes.html' title='db::bytes::Bytes'>Bytes</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves header bytes by block reference (number/hash)</p>
+</div><h4 id='method.block_header' class='method'><span id='block_header.v' class='invisible'><code>fn <a href='../db/trait.BlockHeaderProvider.html#tymethod.block_header' class='fnname'>block_header</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/block_header/struct.BlockHeader.html' title='chain::block_header::BlockHeader'>BlockHeader</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves header bytes by block reference (number/hash)</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.BlockProvider.html' title='db::BlockProvider'>BlockProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#388-427' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.block_number' class='method'><span id='block_number.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#tymethod.block_number' class='fnname'>block_number</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves number by block hash</p>
+</div><h4 id='method.block_hash' class='method'><span id='block_hash.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#tymethod.block_hash' class='fnname'>block_hash</a>(&amp;self, number: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves hash by block number</p>
+</div><h4 id='method.block' class='method'><span id='block.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#tymethod.block' class='fnname'>block</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/block/struct.Block.html' title='chain::block::Block'>Block</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves deserialized block body by block reference (number/hash)</p>
+</div><h4 id='method.contains_block' class='method'><span id='contains_block.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#method.contains_block' class='fnname'>contains_block</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>returns true if store contains given block</p>
+</div><h4 id='method.block_transaction_hashes' class='method'><span id='block_transaction_hashes.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#tymethod.block_transaction_hashes' class='fnname'>block_transaction_hashes</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>&gt;</code></span></h4>
+<div class='docblock'><p>resolves list of block transactions by block reference (number/hash)</p>
+</div><h4 id='method.block_transactions' class='method'><span id='block_transactions.v' class='invisible'><code>fn <a href='../db/trait.BlockProvider.html#tymethod.block_transactions' class='fnname'>block_transactions</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>returns all transactions in the block by block reference (number/hash)</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.IndexedBlockProvider.html' title='db::IndexedBlockProvider'>IndexedBlockProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#429-458' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.indexed_block_header' class='method'><span id='indexed_block_header.v' class='invisible'><code>fn <a href='../db/trait.IndexedBlockProvider.html#tymethod.indexed_block_header' class='fnname'>indexed_block_header</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/indexed_header/struct.IndexedBlockHeader.html' title='chain::indexed_header::IndexedBlockHeader'>IndexedBlockHeader</a>&gt;</code></span></h4>
+<h4 id='method.indexed_block' class='method'><span id='indexed_block.v' class='invisible'><code>fn <a href='../db/trait.IndexedBlockProvider.html#tymethod.indexed_block' class='fnname'>indexed_block</a>(&amp;self, block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/indexed_block/struct.IndexedBlock.html' title='chain::indexed_block::IndexedBlock'>IndexedBlock</a>&gt;</code></span></h4>
+<h4 id='method.indexed_block_transactions' class='method'><span id='indexed_block_transactions.v' class='invisible'><code>fn <a href='../db/trait.IndexedBlockProvider.html#tymethod.indexed_block_transactions' class='fnname'>indexed_block_transactions</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; block_ref: <a class='enum' href='../db/enum.BlockRef.html' title='db::BlockRef'>BlockRef</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../chain/indexed_transaction/struct.IndexedTransaction.html' title='chain::indexed_transaction::IndexedTransaction'>IndexedTransaction</a>&gt;</code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.TransactionMetaProvider.html' title='db::TransactionMetaProvider'>TransactionMetaProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#460-464' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.transaction_meta' class='method'><span id='transaction_meta.v' class='invisible'><code>fn <a href='../db/trait.TransactionMetaProvider.html#tymethod.transaction_meta' class='fnname'>transaction_meta</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../db/struct.TransactionMeta.html' title='db::TransactionMeta'>TransactionMeta</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns None if transactin with given hash does not exist Otherwise returns transaction meta object <a href="../db/trait.TransactionMetaProvider.html#tymethod.transaction_meta">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.TransactionProvider.html' title='db::TransactionProvider'>TransactionProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#466-475' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.transaction_bytes' class='method'><span id='transaction_bytes.v' class='invisible'><code>fn <a href='../db/trait.TransactionProvider.html#tymethod.transaction_bytes' class='fnname'>transaction_bytes</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../db/bytes/struct.Bytes.html' title='db::bytes::Bytes'>Bytes</a>&gt;</code></span></h4>
+<div class='docblock'><p>Resolves transaction body bytes by transaction hash.</p>
+</div><h4 id='method.transaction' class='method'><span id='transaction.v' class='invisible'><code>fn <a href='../db/trait.TransactionProvider.html#tymethod.transaction' class='fnname'>transaction</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Resolves serialized transaction info by transaction hash.</p>
+</div><h4 id='method.contains_transaction' class='method'><span id='contains_transaction.v' class='invisible'><code>fn <a href='../db/trait.TransactionProvider.html#method.contains_transaction' class='fnname'>contains_transaction</a>(&amp;self, hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns true if store contains given transaction.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.TransactionOutputProvider.html' title='db::TransactionOutputProvider'>TransactionOutputProvider</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#477-490' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.transaction_output' class='method'><span id='transaction_output.v' class='invisible'><code>fn <a href='../db/trait.TransactionOutputProvider.html#tymethod.transaction_output' class='fnname'>transaction_output</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prevout: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _transaction_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/transaction/struct.TransactionOutput.html' title='chain::transaction::TransactionOutput'>TransactionOutput</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns transaction output.</p>
+</div><h4 id='method.is_spent' class='method'><span id='is_spent.v' class='invisible'><code>fn <a href='../db/trait.TransactionOutputProvider.html#tymethod.is_spent' class='fnname'>is_spent</a>(&amp;self, prevout: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns true if we know that output is double spent.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.BlockChain.html' title='db::BlockChain'>BlockChain</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#492-508' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.insert-1' class='method'><span id='insert.v-1' class='invisible'><code>fn <a href='../db/trait.BlockChain.html#tymethod.insert' class='fnname'>insert</a>(&amp;self, block: &amp;<a class='struct' href='../chain/indexed_block/struct.IndexedBlock.html' title='chain::indexed_block::IndexedBlock'>IndexedBlock</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Inserts new block into blockchain</p>
+</div><h4 id='method.canonize-1' class='method'><span id='canonize.v-1' class='invisible'><code>fn <a href='../db/trait.BlockChain.html#tymethod.canonize' class='fnname'>canonize</a>(&amp;self, block_hash: &amp;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Canonizes block with given hash</p>
+</div><h4 id='method.decanonize-1' class='method'><span id='decanonize.v-1' class='invisible'><code>fn <a href='../db/trait.BlockChain.html#tymethod.decanonize' class='fnname'>decanonize</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='../db/hash/struct.H256.html' title='db::hash::H256'>H256</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Decanonizes best block</p>
+</div><h4 id='method.block_origin-1' class='method'><span id='block_origin.v-1' class='invisible'><code>fn <a href='../db/trait.BlockChain.html#tymethod.block_origin' class='fnname'>block_origin</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; header: &amp;<a class='struct' href='../chain/indexed_header/struct.IndexedBlockHeader.html' title='chain::indexed_header::IndexedBlockHeader'>IndexedBlockHeader</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='enum' href='../db/enum.BlockOrigin.html' title='db::BlockOrigin'>BlockOrigin</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Checks block origin</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.Forkable.html' title='db::Forkable'>Forkable</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#510-524' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fork-1' class='method'><span id='fork.v-1' class='invisible'><code>fn <a href='../db/trait.Forkable.html#tymethod.fork' class='fnname'>fork</a>&lt;'a&gt;(&amp;'a self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; side_chain: <a class='struct' href='../db/struct.SideChainOrigin.html' title='db::SideChainOrigin'>SideChainOrigin</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../db/trait.ForkChain.html' title='db::ForkChain'>ForkChain</a> + 'a&gt;, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Forks current blockchain. Lifetime guarantees fork relationship with canon chain. <a href="../db/trait.Forkable.html#tymethod.fork">Read more</a></p>
+</div><h4 id='method.switch_to_fork-1' class='method'><span id='switch_to_fork.v-1' class='invisible'><code>fn <a href='../db/trait.Forkable.html#tymethod.switch_to_fork' class='fnname'>switch_to_fork</a>&lt;'a&gt;(&amp;self, fork: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='../db/trait.ForkChain.html' title='db::ForkChain'>ForkChain</a> + 'a&gt;) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../db/enum.Error.html' title='db::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Switches blockchain to given fork. Lifetime guarantees that fork comes from this canon chain. <a href="../db/trait.Forkable.html#tymethod.switch_to_fork">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.CanonStore.html' title='db::CanonStore'>CanonStore</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#526-530' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.as_store' class='method'><span id='as_store.v' class='invisible'><code>fn <a href='../db/trait.CanonStore.html#tymethod.as_store' class='fnname'>as_store</a>(&amp;self) -&gt; &amp;<a class='trait' href='../db/trait.Store.html' title='db::Store'>Store</a></code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;T&gt; <a class='trait' href='../db/trait.Store.html' title='db::Store'>Store</a> for <a class='struct' href='../db/struct.BlockChainDatabase.html' title='db::BlockChainDatabase'>BlockChainDatabase</a>&lt;T&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../db/kv/trait.KeyValueDatabase.html' title='db::kv::KeyValueDatabase'>KeyValueDatabase</a></span></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/db/block_chain_db.rs.html#532-546' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.best_block-1' class='method'><span id='best_block.v-1' class='invisible'><code>fn <a href='../db/trait.Store.html#tymethod.best_block' class='fnname'>best_block</a>(&amp;self) -&gt; <a class='struct' href='../db/struct.BestBlock.html' title='db::BestBlock'>BestBlock</a></code></span></h4>
+<div class='docblock'><p>get best block</p>
+</div><h4 id='method.best_header' class='method'><span id='best_header.v' class='invisible'><code>fn <a href='../db/trait.Store.html#tymethod.best_header' class='fnname'>best_header</a>(&amp;self) -&gt; <a class='struct' href='../chain/block_header/struct.BlockHeader.html' title='chain::block_header::BlockHeader'>BlockHeader</a></code></span></h4>
+<div class='docblock'><p>get best header</p>
+</div><h4 id='method.difficulty' class='method'><span id='difficulty.v' class='invisible'><code>fn <a href='../db/trait.Store.html#tymethod.difficulty' class='fnname'>difficulty</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.f64.html'>f64</a></code></span></h4>
+<div class='docblock'><p>get blockchain difficulty</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "db";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

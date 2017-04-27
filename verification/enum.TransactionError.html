@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `TransactionError` enum in crate `verification`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, TransactionError">
+
+    <title>verification::TransactionError - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>verification</a></p><script>window.sidebarCurrent = {name: 'TransactionError', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>verification</a>::<wbr><a class='enum' href=''>TransactionError</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/verification/error.rs.html#61-96' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum TransactionError {
+    Empty,
+    NullNonCoinbase,
+    CoinbaseSignatureLength(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    MaxSize,
+    MaxSigops,
+    MemoryPoolCoinbase,
+    Input(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    Maturity,
+    Signature(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    UnknownReference(<a class='struct' href='../verification/hash/struct.H256.html' title='verification::hash::H256'>H256</a>),
+    Overspend,
+    SignatureMallformed(<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>),
+    Sigops(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    SigopsP2SH(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>),
+    MisplacedCoinbase,
+    UnspentTransactionWithTheSameHash,
+    UsingSpentOutput(<a class='struct' href='../verification/hash/struct.H256.html' title='verification::hash::H256'>H256</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>),
+}</pre><div class='docblock'><p>Possible transactions verification errors</p>
+</div><h2 class='variants'>Variants</h2>
+<span id='variant.Empty' class='variant'><span id='Empty.v' class='invisible'><code>Empty</code></span></span><div class='docblock'><p>Transaction has no inputs or no outputs</p>
+</div><span id='variant.NullNonCoinbase' class='variant'><span id='NullNonCoinbase.v' class='invisible'><code>NullNonCoinbase</code></span></span><div class='docblock'><p>Transaction is not coinbase transaction but has null inputs</p>
+</div><span id='variant.CoinbaseSignatureLength' class='variant'><span id='CoinbaseSignatureLength.v' class='invisible'><code>CoinbaseSignatureLength(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></span><div class='docblock'><p>Coinbase signature is not in the range 2-100</p>
+</div><span id='variant.MaxSize' class='variant'><span id='MaxSize.v' class='invisible'><code>MaxSize</code></span></span><div class='docblock'><p>Transaction size exceeds block size limit</p>
+</div><span id='variant.MaxSigops' class='variant'><span id='MaxSigops.v' class='invisible'><code>MaxSigops</code></span></span><div class='docblock'><p>Transaction has more sigops than it&#39;s allowed</p>
+</div><span id='variant.MemoryPoolCoinbase' class='variant'><span id='MemoryPoolCoinbase.v' class='invisible'><code>MemoryPoolCoinbase</code></span></span><div class='docblock'><p>Transaction is a part of memory pool, but is a coinbase</p>
+</div><span id='variant.Input' class='variant'><span id='Input.v' class='invisible'><code>Input(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></span><div class='docblock'><p>Not found corresponding output for transaction input</p>
+</div><span id='variant.Maturity' class='variant'><span id='Maturity.v' class='invisible'><code>Maturity</code></span></span><div class='docblock'><p>Referenced coinbase output for the transaction input is not mature enough</p>
+</div><span id='variant.Signature' class='variant'><span id='Signature.v' class='invisible'><code>Signature(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></span><div class='docblock'><p>Signature invalid for given input</p>
+</div><span id='variant.UnknownReference' class='variant'><span id='UnknownReference.v' class='invisible'><code>UnknownReference(<a class='struct' href='../verification/hash/struct.H256.html' title='verification::hash::H256'>H256</a>)</code></span></span><div class='docblock'><p>Unknown previous transaction referenced</p>
+</div><span id='variant.Overspend' class='variant'><span id='Overspend.v' class='invisible'><code>Overspend</code></span></span><div class='docblock'><p>Spends more than claims</p>
+</div><span id='variant.SignatureMallformed' class='variant'><span id='SignatureMallformed.v' class='invisible'><code>SignatureMallformed(<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>)</code></span></span><div class='docblock'><p>Signature script can&#39;t be properly parsed</p>
+</div><span id='variant.Sigops' class='variant'><span id='Sigops.v' class='invisible'><code>Sigops(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></span><div class='docblock'><p>Too many signature operations</p>
+</div><span id='variant.SigopsP2SH' class='variant'><span id='SigopsP2SH.v' class='invisible'><code>SigopsP2SH(<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></span><div class='docblock'><p>Too many signature operations once p2sh operations included</p>
+</div><span id='variant.MisplacedCoinbase' class='variant'><span id='MisplacedCoinbase.v' class='invisible'><code>MisplacedCoinbase</code></span></span><div class='docblock'><p>Coinbase transaction is found at position that is not 0</p>
+</div><span id='variant.UnspentTransactionWithTheSameHash' class='variant'><span id='UnspentTransactionWithTheSameHash.v' class='invisible'><code>UnspentTransactionWithTheSameHash</code></span></span><div class='docblock'><p>Not fully spent transaction with the same hash already exists, bip30.</p>
+</div><span id='variant.UsingSpentOutput' class='variant'><span id='UsingSpentOutput.v' class='invisible'><code>UsingSpentOutput(<a class='struct' href='../verification/hash/struct.H256.html' title='verification::hash::H256'>H256</a>,&nbsp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></span></span><div class='docblock'><p>Using output that is surely spent</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../verification/enum.TransactionError.html' title='verification::TransactionError'>TransactionError</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/verification/error.rs.html#59' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../verification/enum.TransactionError.html' title='verification::TransactionError'>TransactionError</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/verification/error.rs.html#59' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../verification/enum.TransactionError.html' title='verification::TransactionError'>TransactionError</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../verification/enum.TransactionError.html' title='verification::TransactionError'>TransactionError</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "verification";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

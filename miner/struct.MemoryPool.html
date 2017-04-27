@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `MemoryPool` struct in crate `miner`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, MemoryPool">
+
+    <title>miner::MemoryPool - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>miner</a></p><script>window.sidebarCurrent = {name: 'MemoryPool', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>miner</a>::<wbr><a class='struct' href=''>MemoryPool</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/miner/memory_pool.rs.html#44-47' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct MemoryPool { /* fields omitted */ }</pre><div class='docblock'><p>Transactions memory pool</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#645-803' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; Self</code></span></h4>
+<div class='docblock'><p>Creates new memory pool</p>
+</div><h4 id='method.insert_verified' class='method'><span id='insert_verified.v' class='invisible'><code>fn <a href='#method.insert_verified' class='fnname'>insert_verified</a>(&amp;mut self, t: <a class='struct' href='../chain/indexed_transaction/struct.IndexedTransaction.html' title='chain::indexed_transaction::IndexedTransaction'>IndexedTransaction</a>)</code></span></h4>
+<div class='docblock'><p>Insert verified transaction to the <code>MemoryPool</code></p>
+</div><h4 id='method.iter' class='method'><span id='iter.v' class='invisible'><code>fn <a href='#method.iter' class='fnname'>iter</a>(&amp;self, strategy: <a class='enum' href='../miner/enum.MemoryPoolOrderingStrategy.html' title='miner::MemoryPoolOrderingStrategy'>OrderingStrategy</a>) -&gt; MemoryPoolIterator</code></span></h4>
+<div class='docblock'><p>Iterator over memory pool transactions according to specified strategy</p>
+</div><h4 id='method.remove_by_hash' class='method'><span id='remove_by_hash.v' class='invisible'><code>fn <a href='#method.remove_by_hash' class='fnname'>remove_by_hash</a>(&amp;mut self, h: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Removes single transaction by its hash.
+All descedants remain in the pool.</p>
+</div><h4 id='method.check_double_spend' class='method'><span id='check_double_spend.v' class='invisible'><code>fn <a href='#method.check_double_spend' class='fnname'>check_double_spend</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; transaction: &amp;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='../miner/enum.DoubleSpendCheckResult.html' title='miner::DoubleSpendCheckResult'>DoubleSpendCheckResult</a></code></span></h4>
+<div class='docblock'><p>Checks if <code>transaction</code> spends some outputs, already spent by inpool transactions.</p>
+</div><h4 id='method.remove_by_prevout' class='method'><span id='remove_by_prevout.v' class='invisible'><code>fn <a href='#method.remove_by_prevout' class='fnname'>remove_by_prevout</a>(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prevout: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../chain/indexed_transaction/struct.IndexedTransaction.html' title='chain::indexed_transaction::IndexedTransaction'>IndexedTransaction</a>&gt;&gt;</code></span></h4>
+<div class='docblock'><p>Removes transaction (and all its descendants) which has spent given output</p>
+</div><h4 id='method.read_by_hash' class='method'><span id='read_by_hash.v' class='invisible'><code>fn <a href='#method.read_by_hash' class='fnname'>read_by_hash</a>(&amp;self, h: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Reads single transaction by its hash.</p>
+</div><h4 id='method.read_with_strategy' class='method'><span id='read_with_strategy.v' class='invisible'><code>fn <a href='#method.read_with_strategy' class='fnname'>read_with_strategy</a>(&amp;mut self, strategy: <a class='enum' href='../miner/enum.MemoryPoolOrderingStrategy.html' title='miner::MemoryPoolOrderingStrategy'>OrderingStrategy</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>&gt;</code></span></h4>
+<div class='docblock'><p>Reads hash of the &#39;top&#39; transaction from the <code>MemoryPool</code> using selected strategy.
+Ancestors are always returned before descendant transactions.</p>
+</div><h4 id='method.read_n_with_strategy' class='method'><span id='read_n_with_strategy.v' class='invisible'><code>fn <a href='#method.read_n_with_strategy' class='fnname'>read_n_with_strategy</a>(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strategy: <a class='enum' href='../miner/enum.MemoryPoolOrderingStrategy.html' title='miner::MemoryPoolOrderingStrategy'>OrderingStrategy</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>&gt;</code></span></h4>
+<div class='docblock'><p>Reads hashes of up to n transactions from the <code>MemoryPool</code>, using selected strategy.
+Ancestors are always returned before descendant transactions.
+Use this function with care, only if really needed (heavy memory usage)</p>
+</div><h4 id='method.remove_with_strategy' class='method'><span id='remove_with_strategy.v' class='invisible'><code>fn <a href='#method.remove_with_strategy' class='fnname'>remove_with_strategy</a>(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strategy: <a class='enum' href='../miner/enum.MemoryPoolOrderingStrategy.html' title='miner::MemoryPoolOrderingStrategy'>OrderingStrategy</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/indexed_transaction/struct.IndexedTransaction.html' title='chain::indexed_transaction::IndexedTransaction'>IndexedTransaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Removes the &#39;top&#39; transaction from the <code>MemoryPool</code> using selected strategy.
+Ancestors are always removed before descendant transactions.</p>
+</div><h4 id='method.remove_n_with_strategy' class='method'><span id='remove_n_with_strategy.v' class='invisible'><code>fn <a href='#method.remove_n_with_strategy' class='fnname'>remove_n_with_strategy</a>(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; strategy: <a class='enum' href='../miner/enum.MemoryPoolOrderingStrategy.html' title='miner::MemoryPoolOrderingStrategy'>OrderingStrategy</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../chain/indexed_transaction/struct.IndexedTransaction.html' title='chain::indexed_transaction::IndexedTransaction'>IndexedTransaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Removes up to n transactions from the <code>MemoryPool</code>, using selected strategy.
+Ancestors are always removed before descendant transactions.</p>
+</div><h4 id='method.set_virtual_fee' class='method'><span id='set_virtual_fee.v' class='invisible'><code>fn <a href='#method.set_virtual_fee' class='fnname'>set_virtual_fee</a>(&amp;mut self, h: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>, virtual_fee: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i64.html'>i64</a>)</code></span></h4>
+<div class='docblock'><p>Set miner virtual fee for transaction</p>
+</div><h4 id='method.get' class='method'><span id='get.v' class='invisible'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self, hash: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Get transaction by hash</p>
+</div><h4 id='method.contains' class='method'><span id='contains.v' class='invisible'><code>fn <a href='#method.contains' class='fnname'>contains</a>(&amp;self, hash: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Checks if transaction is in the mempool</p>
+</div><h4 id='method.information' class='method'><span id='information.v' class='invisible'><code>fn <a href='#method.information' class='fnname'>information</a>(&amp;self) -&gt; <a class='struct' href='../miner/struct.MemoryPoolInformation.html' title='miner::MemoryPoolInformation'>Information</a></code></span></h4>
+<div class='docblock'><p>Returns information on <code>MemoryPool</code> (as in GetMemPoolInfo RPC)
+<a href="https://bitcoin.org/en/developer-reference#getmempoolinfo">https://bitcoin.org/en/developer-reference#getmempoolinfo</a></p>
+</div><h4 id='method.get_transactions_ids' class='method'><span id='get_transactions_ids.v' class='invisible'><code>fn <a href='#method.get_transactions_ids' class='fnname'>get_transactions_ids</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns TXIDs of all transactions in <code>MemoryPool</code> (as in GetRawMemPool RPC)
+<a href="https://bitcoin.org/en/developer-reference#getrawmempool">https://bitcoin.org/en/developer-reference#getrawmempool</a></p>
+</div><h4 id='method.is_spent' class='method'><span id='is_spent.v' class='invisible'><code>fn <a href='#method.is_spent' class='fnname'>is_spent</a>(&amp;self, prevout: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns true if output was spent</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#43' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#637-643' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class='method'><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; Self</code></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../db/transaction_provider/trait.TransactionProvider.html' title='db::transaction_provider::TransactionProvider'>TransactionProvider</a> for <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#805-813' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.transaction_bytes' class='method'><span id='transaction_bytes.v' class='invisible'><code>fn <a href='../db/transaction_provider/trait.TransactionProvider.html#tymethod.transaction_bytes' class='fnname'>transaction_bytes</a>(&amp;self, hash: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../primitives/bytes/struct.Bytes.html' title='primitives::bytes::Bytes'>Bytes</a>&gt;</code></span></h4>
+<div class='docblock'><p>Resolves transaction body bytes by transaction hash.</p>
+</div><h4 id='method.transaction' class='method'><span id='transaction.v' class='invisible'><code>fn <a href='../db/transaction_provider/trait.TransactionProvider.html#tymethod.transaction' class='fnname'>transaction</a>(&amp;self, hash: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/transaction/struct.Transaction.html' title='chain::transaction::Transaction'>Transaction</a>&gt;</code></span></h4>
+<div class='docblock'><p>Resolves serialized transaction info by transaction hash.</p>
+</div><h4 id='method.contains_transaction' class='method'><span id='contains_transaction.v' class='invisible'><code>fn <a href='../db/transaction_provider/trait.TransactionProvider.html#method.contains_transaction' class='fnname'>contains_transaction</a>(&amp;self, hash: &amp;<a class='struct' href='../primitives/hash/struct.H256.html' title='primitives::hash::H256'>H256</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns true if store contains given transaction.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../db/transaction_provider/trait.TransactionOutputProvider.html' title='db::transaction_provider::TransactionOutputProvider'>TransactionOutputProvider</a> for <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#815-825' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.transaction_output' class='method'><span id='transaction_output.v' class='invisible'><code>fn <a href='../db/transaction_provider/trait.TransactionOutputProvider.html#tymethod.transaction_output' class='fnname'>transaction_output</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; prevout: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _transaction_index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../chain/transaction/struct.TransactionOutput.html' title='chain::transaction::TransactionOutput'>TransactionOutput</a>&gt;</code></span></h4>
+<div class='docblock'><p>Returns transaction output.</p>
+</div><h4 id='method.is_spent-1' class='method'><span id='is_spent.v-1' class='invisible'><code>fn <a href='../db/transaction_provider/trait.TransactionOutputProvider.html#tymethod.is_spent' class='fnname'>is_spent</a>(&amp;self, outpoint: &amp;<a class='struct' href='../chain/transaction/struct.OutPoint.html' title='chain::transaction::OutPoint'>OutPoint</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>Returns true if we know that output is double spent.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='../heapsize/trait.HeapSizeOf.html' title='heapsize::HeapSizeOf'>HeapSizeOf</a> for <a class='struct' href='../miner/struct.MemoryPool.html' title='miner::MemoryPool'>MemoryPool</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/miner/memory_pool.rs.html#827-831' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.heap_size_of_children' class='method'><span id='heap_size_of_children.v' class='invisible'><code>fn <a href='../heapsize/trait.HeapSizeOf.html#tymethod.heap_size_of_children' class='fnname'>heap_size_of_children</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></span></h4>
+<div class='docblock'><p>Measure the size of any heap-allocated structures that hang off this value, but not the space taken up by the value itself (i.e. what size_of::<T> measures, more or less); that space is handled by the implementation of HeapSizeOf for Box<T> below. <a href="../heapsize/trait.HeapSizeOf.html#tymethod.heap_size_of_children">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "miner";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

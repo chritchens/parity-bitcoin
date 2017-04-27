@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Context` struct in crate `p2p`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Context">
+
+    <title>p2p::Context - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>p2p</a></p><script>window.sidebarCurrent = {name: 'Context', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>p2p</a>::<wbr><a class='struct' href=''>Context</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/p2p/p2p.rs.html#25-40' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Context { /* fields omitted */ }</pre><div class='docblock'><p>Network context.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/p2p/p2p.rs.html#42-401' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(local_sync_node: <a class='type' href='../p2p/type.LocalSyncNodeRef.html' title='p2p::LocalSyncNodeRef'>LocalSyncNodeRef</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pool_handle: <a class='struct' href='../futures_cpupool/struct.CpuPool.html' title='futures_cpupool::CpuPool'>CpuPool</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; remote: <a class='struct' href='../tokio_core/reactor/struct.Remote.html' title='tokio_core::reactor::Remote'>Remote</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; config: <a class='struct' href='../p2p/struct.Config.html' title='p2p::Config'>Config</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self, <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html' title='alloc::boxed::Box'>Box</a>&lt;<a class='trait' href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html' title='std::error::Error'>Error</a>&gt;&gt;</code></span></h4>
+<div class='docblock'><p>Creates new context with reference to local sync node, thread pool and event loop.</p>
+</div><h4 id='method.spawn' class='method'><span id='spawn.v' class='invisible'><code>fn <a href='#method.spawn' class='fnname'>spawn</a>&lt;F&gt;(&amp;self, f: F) <span class='where fmt-newline'>where F: <a class='trait' href='../futures/future/trait.Future.html' title='futures::future::Future'>Future</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + 'static,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F::<a class='trait' href='../futures/future/trait.Future.html' title='futures::future::Future'>Item</a>: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + 'static,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F::<a class='trait' href='../futures/future/trait.Future.html' title='futures::future::Future'>Error</a>: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + 'static</span></code></span></h4>
+<div class='docblock'><p>Spawns a future using thread pool and schedules execution of it with event loop handle.</p>
+</div><h4 id='method.execute_after' class='method'><span id='execute_after.v' class='invisible'><code>fn <a href='#method.execute_after' class='fnname'>execute_after</a>&lt;F&gt;(&amp;self, duration: <a class='struct' href='https://doc.rust-lang.org/nightly/std/time/duration/struct.Duration.html' title='std::time::duration::Duration'>Duration</a>, f: F) <span class='where fmt-newline'>where F: <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.FnOnce.html' title='core::ops::FnOnce'>FnOnce</a>() + 'static + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a></span></code></span></h4>
+<div class='docblock'><p>Schedules execution of function in future.
+Use wisely, it keeps used objects in memory until after it is resolved.</p>
+</div><h4 id='method.node_table_entries' class='method'><span id='node_table_entries.v' class='invisible'><code>fn <a href='#method.node_table_entries' class='fnname'>node_table_entries</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;Node&gt;</code></span></h4>
+<div class='docblock'><p>Returns addresses of recently active nodes. Sorted and limited to 1000.</p>
+</div><h4 id='method.update_node_table' class='method'><span id='update_node_table.v' class='invisible'><code>fn <a href='#method.update_node_table' class='fnname'>update_node_table</a>(&amp;self, nodes: <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;Node&gt;)</code></span></h4>
+<div class='docblock'><p>Updates node table.</p>
+</div><h4 id='method.add_node' class='method'><span id='add_node.v' class='invisible'><code>fn <a href='#method.add_node' class='fnname'>add_node</a>(&amp;self, addr: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../p2p/enum.NodeTableError.html' title='p2p::NodeTableError'>NodeTableError</a>&gt;</code></span></h4>
+<div class='docblock'><p>Adds node to table.</p>
+</div><h4 id='method.remove_node' class='method'><span id='remove_node.v' class='invisible'><code>fn <a href='#method.remove_node' class='fnname'>remove_node</a>(&amp;self, addr: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='enum' href='../p2p/enum.NodeTableError.html' title='p2p::NodeTableError'>NodeTableError</a>&gt;</code></span></h4>
+<div class='docblock'><p>Removes node from table.</p>
+</div><h4 id='method.autoconnect' class='method'><span id='autoconnect.v' class='invisible'><code>fn <a href='#method.autoconnect' class='fnname'>autoconnect</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;, handle: &amp;<a class='struct' href='../tokio_core/reactor/struct.Handle.html' title='tokio_core::reactor::Handle'>Handle</a>)</code></span></h4>
+<div class='docblock'><p>Every 10 seconds check if we have reached maximum number of outbound connections.
+If not, connect to best peers.</p>
+</div><h4 id='method.connect' class='method'><span id='connect.v' class='invisible'><code>fn <a href='#method.connect' class='fnname'>connect</a>&lt;T&gt;(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;, socket: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>) <span class='where fmt-newline'>where T: SessionFactory</span></code></span></h4>
+<div class='docblock'><p>Connect to socket using given context.</p>
+</div><h4 id='method.connect_normal' class='method'><span id='connect_normal.v' class='invisible'><code>fn <a href='#method.connect_normal' class='fnname'>connect_normal</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;, socket: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>)</code></span></h4>
+<h4 id='method.accept_connection_future' class='method'><span id='accept_connection_future.v' class='invisible'><code>fn <a href='#method.accept_connection_future' class='fnname'>accept_connection_future</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream: <a class='struct' href='../tokio_core/net/tcp/struct.TcpStream.html' title='tokio_core::net::tcp::TcpStream'>TcpStream</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handle: &amp;<a class='struct' href='../tokio_core/reactor/struct.Handle.html' title='tokio_core::reactor::Handle'>Handle</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; config: <a class='struct' href='../p2p/struct.NetConfig.html' title='p2p::NetConfig'>NetConfig</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../futures/future/type.BoxFuture.html' title='futures::future::BoxFuture'>BoxFuture</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></span></h4>
+<h4 id='method.accept_connection' class='method'><span id='accept_connection.v' class='invisible'><code>fn <a href='#method.accept_connection' class='fnname'>accept_connection</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; stream: <a class='struct' href='../tokio_core/net/tcp/struct.TcpStream.html' title='tokio_core::net::tcp::TcpStream'>TcpStream</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; socket: <a class='enum' href='https://doc.rust-lang.org/nightly/std/net/addr/enum.SocketAddr.html' title='std::net::addr::SocketAddr'>SocketAddr</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; config: <a class='struct' href='../p2p/struct.NetConfig.html' title='p2p::NetConfig'>NetConfig</a>)</code></span></h4>
+<h4 id='method.listen' class='method'><span id='listen.v' class='invisible'><code>fn <a href='#method.listen' class='fnname'>listen</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; handle: &amp;<a class='struct' href='../tokio_core/reactor/struct.Handle.html' title='tokio_core::reactor::Handle'>Handle</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; config: <a class='struct' href='../p2p/struct.NetConfig.html' title='p2p::NetConfig'>NetConfig</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='type' href='../futures/future/type.BoxFuture.html' title='futures::future::BoxFuture'>BoxFuture</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;, <a class='struct' href='https://doc.rust-lang.org/nightly/std/io/error/struct.Error.html' title='std::io::error::Error'>Error</a>&gt;</code></span></h4>
+<div class='docblock'><p>Starts tcp server and listens for incomming connections.</p>
+</div><h4 id='method.on_message' class='method'><span id='on_message.v' class='invisible'><code>fn <a href='#method.on_message' class='fnname'>on_message</a>(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;Channel&gt;)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../tokio_io/type.IoFuture.html' title='tokio_io::IoFuture'>IoFuture</a>&lt;<a class='type' href='../message/error/type.MessageResult.html' title='message::error::MessageResult'>MessageResult</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;&gt;</code></span></h4>
+<div class='docblock'><p>Called on incomming mesage.</p>
+</div><h4 id='method.send_to_peer' class='method'><span id='send_to_peer.v' class='invisible'><code>fn <a href='#method.send_to_peer' class='fnname'>send_to_peer</a>&lt;T&gt;(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; peer: <a class='type' href='../p2p/type.PeerId.html' title='p2p::PeerId'>PeerId</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; payload: &amp;T)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../tokio_io/type.IoFuture.html' title='tokio_io::IoFuture'>IoFuture</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt; <span class='where fmt-newline'>where T: <a class='trait' href='../message/message/payload/trait.Payload.html' title='message::message::payload::Payload'>Payload</a></span></code></span></h4>
+<div class='docblock'><p>Send message to a channel with given peer id.</p>
+</div><h4 id='method.send_message_to_peer' class='method'><span id='send_message_to_peer.v' class='invisible'><code>fn <a href='#method.send_message_to_peer' class='fnname'>send_message_to_peer</a>&lt;T&gt;(context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; peer: <a class='type' href='../p2p/type.PeerId.html' title='p2p::PeerId'>PeerId</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message: T)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../tokio_io/type.IoFuture.html' title='tokio_io::IoFuture'>IoFuture</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt; <span class='where fmt-newline'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt; + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + 'static</span></code></span></h4>
+<h4 id='method.send' class='method'><span id='send.v' class='invisible'><code>fn <a href='#method.send' class='fnname'>send</a>&lt;T&gt;(_context: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;<a class='struct' href='../p2p/struct.Context.html' title='p2p::Context'>Context</a>&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; channel: <a class='struct' href='https://doc.rust-lang.org/nightly/alloc/arc/struct.Arc.html' title='alloc::arc::Arc'>Arc</a>&lt;Channel&gt;,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; message: T)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../tokio_io/type.IoFuture.html' title='tokio_io::IoFuture'>IoFuture</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt; <span class='where fmt-newline'>where T: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt; + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + 'static</span></code></span></h4>
+<div class='docblock'><p>Send message using given channel.</p>
+</div><h4 id='method.close_channel' class='method'><span id='close_channel.v' class='invisible'><code>fn <a href='#method.close_channel' class='fnname'>close_channel</a>(&amp;self, id: <a class='type' href='../p2p/type.PeerId.html' title='p2p::PeerId'>PeerId</a>)</code></span></h4>
+<div class='docblock'><p>Close channel with given peer info.</p>
+</div><h4 id='method.close_channel_with_error' class='method'><span id='close_channel_with_error.v' class='invisible'><code>fn <a href='#method.close_channel_with_error' class='fnname'>close_channel_with_error</a>(&amp;self, id: <a class='type' href='../p2p/type.PeerId.html' title='p2p::PeerId'>PeerId</a>, error: &amp;<a class='trait' href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html' title='std::error::Error'>Error</a>)</code></span></h4>
+<div class='docblock'><p>Close channel with given peer info.</p>
+</div><h4 id='method.create_sync_session' class='method'><span id='create_sync_session.v' class='invisible'><code>fn <a href='#method.create_sync_session' class='fnname'>create_sync_session</a>(&amp;self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; start_height: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; outbound_connection: <a class='type' href='../p2p/type.OutboundSyncConnectionRef.html' title='p2p::OutboundSyncConnectionRef'>OutboundSyncConnectionRef</a>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&gt; <a class='type' href='../p2p/type.InboundSyncConnectionRef.html' title='p2p::InboundSyncConnectionRef'>InboundSyncConnectionRef</a></code></span></h4>
+<h4 id='method.connections' class='method'><span id='connections.v' class='invisible'><code>fn <a href='#method.connections' class='fnname'>connections</a>(&amp;self) -&gt; &amp;Connections</code></span></h4>
+<h4 id='method.nodes' class='method'><span id='nodes.v' class='invisible'><code>fn <a href='#method.nodes' class='fnname'>nodes</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;Node&gt;</code></span></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "p2p";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

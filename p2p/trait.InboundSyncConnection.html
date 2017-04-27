@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `InboundSyncConnection` trait in crate `p2p`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, InboundSyncConnection">
+
+    <title>p2p::InboundSyncConnection - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>p2p</a></p><script>window.sidebarCurrent = {name: 'InboundSyncConnection', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='index.html'>p2p</a>::<wbr><a class='trait' href=''>InboundSyncConnection</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/p2p/protocol/sync.rs.html#15-37' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait InboundSyncConnection: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Send.html' title='core::marker::Send'>Send</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sync.html' title='core::marker::Sync'>Sync</a> {
+    fn <a href='#tymethod.start_sync_session' class='fnname'>start_sync_session</a>(&amp;self, version: <a class='enum' href='../message/types/version/enum.Version.html' title='message::types::version::Version'>Version</a>);
+    fn <a href='#tymethod.close_session' class='fnname'>close_session</a>(&amp;self);
+    fn <a href='#tymethod.on_inventory' class='fnname'>on_inventory</a>(&amp;self, message: <a class='struct' href='../message/types/inv/struct.Inv.html' title='message::types::inv::Inv'>Inv</a>);
+    fn <a href='#tymethod.on_getdata' class='fnname'>on_getdata</a>(&amp;self, message: <a class='struct' href='../message/types/getdata/struct.GetData.html' title='message::types::getdata::GetData'>GetData</a>);
+    fn <a href='#tymethod.on_getblocks' class='fnname'>on_getblocks</a>(&amp;self, message: <a class='struct' href='../message/types/getblocks/struct.GetBlocks.html' title='message::types::getblocks::GetBlocks'>GetBlocks</a>);
+    fn <a href='#tymethod.on_getheaders' class='fnname'>on_getheaders</a>(&amp;self, message: <a class='struct' href='../message/types/getheaders/struct.GetHeaders.html' title='message::types::getheaders::GetHeaders'>GetHeaders</a>, id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>);
+    fn <a href='#tymethod.on_transaction' class='fnname'>on_transaction</a>(&amp;self, message: <a class='struct' href='../message/types/tx/struct.Tx.html' title='message::types::tx::Tx'>Tx</a>);
+    fn <a href='#tymethod.on_block' class='fnname'>on_block</a>(&amp;self, message: <a class='struct' href='../message/types/block/struct.Block.html' title='message::types::block::Block'>Block</a>);
+    fn <a href='#tymethod.on_headers' class='fnname'>on_headers</a>(&amp;self, message: <a class='struct' href='../message/types/headers/struct.Headers.html' title='message::types::headers::Headers'>Headers</a>);
+    fn <a href='#tymethod.on_mempool' class='fnname'>on_mempool</a>(&amp;self, message: <a class='struct' href='../message/types/mempool/struct.MemPool.html' title='message::types::mempool::MemPool'>MemPool</a>);
+    fn <a href='#tymethod.on_filterload' class='fnname'>on_filterload</a>(&amp;self, message: <a class='struct' href='../message/types/filterload/struct.FilterLoad.html' title='message::types::filterload::FilterLoad'>FilterLoad</a>);
+    fn <a href='#tymethod.on_filteradd' class='fnname'>on_filteradd</a>(&amp;self, message: <a class='struct' href='../message/types/filteradd/struct.FilterAdd.html' title='message::types::filteradd::FilterAdd'>FilterAdd</a>);
+    fn <a href='#tymethod.on_filterclear' class='fnname'>on_filterclear</a>(&amp;self, message: <a class='struct' href='../message/types/filterclear/struct.FilterClear.html' title='message::types::filterclear::FilterClear'>FilterClear</a>);
+    fn <a href='#tymethod.on_merkleblock' class='fnname'>on_merkleblock</a>(&amp;self, message: <a class='struct' href='../message/types/merkle_block/struct.MerkleBlock.html' title='message::types::merkle_block::MerkleBlock'>MerkleBlock</a>);
+    fn <a href='#tymethod.on_sendheaders' class='fnname'>on_sendheaders</a>(&amp;self, message: <a class='struct' href='../message/types/sendheaders/struct.SendHeaders.html' title='message::types::sendheaders::SendHeaders'>SendHeaders</a>);
+    fn <a href='#tymethod.on_feefilter' class='fnname'>on_feefilter</a>(&amp;self, message: <a class='struct' href='../message/types/feefilter/struct.FeeFilter.html' title='message::types::feefilter::FeeFilter'>FeeFilter</a>);
+    fn <a href='#tymethod.on_send_compact' class='fnname'>on_send_compact</a>(&amp;self, message: <a class='struct' href='../message/types/sendcompact/struct.SendCompact.html' title='message::types::sendcompact::SendCompact'>SendCompact</a>);
+    fn <a href='#tymethod.on_compact_block' class='fnname'>on_compact_block</a>(&amp;self, message: <a class='struct' href='../message/types/compactblock/struct.CompactBlock.html' title='message::types::compactblock::CompactBlock'>CompactBlock</a>);
+    fn <a href='#tymethod.on_get_block_txn' class='fnname'>on_get_block_txn</a>(&amp;self, message: <a class='struct' href='../message/types/getblocktxn/struct.GetBlockTxn.html' title='message::types::getblocktxn::GetBlockTxn'>GetBlockTxn</a>);
+    fn <a href='#tymethod.on_block_txn' class='fnname'>on_block_txn</a>(&amp;self, message: <a class='struct' href='../message/types/blocktxn/struct.BlockTxn.html' title='message::types::blocktxn::BlockTxn'>BlockTxn</a>);
+    fn <a href='#tymethod.on_notfound' class='fnname'>on_notfound</a>(&amp;self, message: <a class='struct' href='../message/types/notfound/struct.NotFound.html' title='message::types::notfound::NotFound'>NotFound</a>);
+}</pre>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.start_sync_session' class='method'><span id='start_sync_session.v' class='invisible'><code>fn <a href='#tymethod.start_sync_session' class='fnname'>start_sync_session</a>(&amp;self, version: <a class='enum' href='../message/types/version/enum.Version.html' title='message::types::version::Version'>Version</a>)</code></span></h3><h3 id='tymethod.close_session' class='method'><span id='close_session.v' class='invisible'><code>fn <a href='#tymethod.close_session' class='fnname'>close_session</a>(&amp;self)</code></span></h3><h3 id='tymethod.on_inventory' class='method'><span id='on_inventory.v' class='invisible'><code>fn <a href='#tymethod.on_inventory' class='fnname'>on_inventory</a>(&amp;self, message: <a class='struct' href='../message/types/inv/struct.Inv.html' title='message::types::inv::Inv'>Inv</a>)</code></span></h3><h3 id='tymethod.on_getdata' class='method'><span id='on_getdata.v' class='invisible'><code>fn <a href='#tymethod.on_getdata' class='fnname'>on_getdata</a>(&amp;self, message: <a class='struct' href='../message/types/getdata/struct.GetData.html' title='message::types::getdata::GetData'>GetData</a>)</code></span></h3><h3 id='tymethod.on_getblocks' class='method'><span id='on_getblocks.v' class='invisible'><code>fn <a href='#tymethod.on_getblocks' class='fnname'>on_getblocks</a>(&amp;self, message: <a class='struct' href='../message/types/getblocks/struct.GetBlocks.html' title='message::types::getblocks::GetBlocks'>GetBlocks</a>)</code></span></h3><h3 id='tymethod.on_getheaders' class='method'><span id='on_getheaders.v' class='invisible'><code>fn <a href='#tymethod.on_getheaders' class='fnname'>on_getheaders</a>(&amp;self, message: <a class='struct' href='../message/types/getheaders/struct.GetHeaders.html' title='message::types::getheaders::GetHeaders'>GetHeaders</a>, id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>)</code></span></h3><h3 id='tymethod.on_transaction' class='method'><span id='on_transaction.v' class='invisible'><code>fn <a href='#tymethod.on_transaction' class='fnname'>on_transaction</a>(&amp;self, message: <a class='struct' href='../message/types/tx/struct.Tx.html' title='message::types::tx::Tx'>Tx</a>)</code></span></h3><h3 id='tymethod.on_block' class='method'><span id='on_block.v' class='invisible'><code>fn <a href='#tymethod.on_block' class='fnname'>on_block</a>(&amp;self, message: <a class='struct' href='../message/types/block/struct.Block.html' title='message::types::block::Block'>Block</a>)</code></span></h3><h3 id='tymethod.on_headers' class='method'><span id='on_headers.v' class='invisible'><code>fn <a href='#tymethod.on_headers' class='fnname'>on_headers</a>(&amp;self, message: <a class='struct' href='../message/types/headers/struct.Headers.html' title='message::types::headers::Headers'>Headers</a>)</code></span></h3><h3 id='tymethod.on_mempool' class='method'><span id='on_mempool.v' class='invisible'><code>fn <a href='#tymethod.on_mempool' class='fnname'>on_mempool</a>(&amp;self, message: <a class='struct' href='../message/types/mempool/struct.MemPool.html' title='message::types::mempool::MemPool'>MemPool</a>)</code></span></h3><h3 id='tymethod.on_filterload' class='method'><span id='on_filterload.v' class='invisible'><code>fn <a href='#tymethod.on_filterload' class='fnname'>on_filterload</a>(&amp;self, message: <a class='struct' href='../message/types/filterload/struct.FilterLoad.html' title='message::types::filterload::FilterLoad'>FilterLoad</a>)</code></span></h3><h3 id='tymethod.on_filteradd' class='method'><span id='on_filteradd.v' class='invisible'><code>fn <a href='#tymethod.on_filteradd' class='fnname'>on_filteradd</a>(&amp;self, message: <a class='struct' href='../message/types/filteradd/struct.FilterAdd.html' title='message::types::filteradd::FilterAdd'>FilterAdd</a>)</code></span></h3><h3 id='tymethod.on_filterclear' class='method'><span id='on_filterclear.v' class='invisible'><code>fn <a href='#tymethod.on_filterclear' class='fnname'>on_filterclear</a>(&amp;self, message: <a class='struct' href='../message/types/filterclear/struct.FilterClear.html' title='message::types::filterclear::FilterClear'>FilterClear</a>)</code></span></h3><h3 id='tymethod.on_merkleblock' class='method'><span id='on_merkleblock.v' class='invisible'><code>fn <a href='#tymethod.on_merkleblock' class='fnname'>on_merkleblock</a>(&amp;self, message: <a class='struct' href='../message/types/merkle_block/struct.MerkleBlock.html' title='message::types::merkle_block::MerkleBlock'>MerkleBlock</a>)</code></span></h3><h3 id='tymethod.on_sendheaders' class='method'><span id='on_sendheaders.v' class='invisible'><code>fn <a href='#tymethod.on_sendheaders' class='fnname'>on_sendheaders</a>(&amp;self, message: <a class='struct' href='../message/types/sendheaders/struct.SendHeaders.html' title='message::types::sendheaders::SendHeaders'>SendHeaders</a>)</code></span></h3><h3 id='tymethod.on_feefilter' class='method'><span id='on_feefilter.v' class='invisible'><code>fn <a href='#tymethod.on_feefilter' class='fnname'>on_feefilter</a>(&amp;self, message: <a class='struct' href='../message/types/feefilter/struct.FeeFilter.html' title='message::types::feefilter::FeeFilter'>FeeFilter</a>)</code></span></h3><h3 id='tymethod.on_send_compact' class='method'><span id='on_send_compact.v' class='invisible'><code>fn <a href='#tymethod.on_send_compact' class='fnname'>on_send_compact</a>(&amp;self, message: <a class='struct' href='../message/types/sendcompact/struct.SendCompact.html' title='message::types::sendcompact::SendCompact'>SendCompact</a>)</code></span></h3><h3 id='tymethod.on_compact_block' class='method'><span id='on_compact_block.v' class='invisible'><code>fn <a href='#tymethod.on_compact_block' class='fnname'>on_compact_block</a>(&amp;self, message: <a class='struct' href='../message/types/compactblock/struct.CompactBlock.html' title='message::types::compactblock::CompactBlock'>CompactBlock</a>)</code></span></h3><h3 id='tymethod.on_get_block_txn' class='method'><span id='on_get_block_txn.v' class='invisible'><code>fn <a href='#tymethod.on_get_block_txn' class='fnname'>on_get_block_txn</a>(&amp;self, message: <a class='struct' href='../message/types/getblocktxn/struct.GetBlockTxn.html' title='message::types::getblocktxn::GetBlockTxn'>GetBlockTxn</a>)</code></span></h3><h3 id='tymethod.on_block_txn' class='method'><span id='on_block_txn.v' class='invisible'><code>fn <a href='#tymethod.on_block_txn' class='fnname'>on_block_txn</a>(&amp;self, message: <a class='struct' href='../message/types/blocktxn/struct.BlockTxn.html' title='message::types::blocktxn::BlockTxn'>BlockTxn</a>)</code></span></h3><h3 id='tymethod.on_notfound' class='method'><span id='on_notfound.v' class='invisible'><code>fn <a href='#tymethod.on_notfound' class='fnname'>on_notfound</a>(&amp;self, message: <a class='struct' href='../message/types/notfound/struct.NotFound.html' title='message::types::notfound::NotFound'>NotFound</a>)</code></span></h3></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../implementors/p2p/trait.InboundSyncConnection.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "p2p";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

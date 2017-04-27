@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VerificationFlags` struct in crate `script`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VerificationFlags">
+
+    <title>script::VerificationFlags - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>script</a></p><script>window.sidebarCurrent = {name: 'VerificationFlags', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>script</a>::<wbr><a class='struct' href=''>VerificationFlags</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/script/flags.rs.html#5-68' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct VerificationFlags {
+    pub none: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_p2sh: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_strictenc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_dersig: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_low_s: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_nulldummy: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_sigpushonly: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_minimaldata: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_discourage_upgradable_nops: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_cleanstack: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_clocktimeverify: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_checksequenceverify: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_witness: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+    pub verify_discourage_upgradable_witness_program: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>,
+}</pre><div class='docblock'><p>Script interpreter verification flags</p>
+</div><h2 class='fields'>Fields</h2><span id='structfield.none' class='structfield'>
+                           <span id='none.v' class='invisible'>
+                           <code>none: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><span id='structfield.verify_p2sh' class='structfield'>
+                           <span id='verify_p2sh.v' class='invisible'>
+                           <code>verify_p2sh: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Evaluate P2SH subscripts (softfork safe, BIP16).</p>
+</div><span id='structfield.verify_strictenc' class='structfield'>
+                           <span id='verify_strictenc.v' class='invisible'>
+                           <code>verify_strictenc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Passing a non-strict-DER signature or one with undefined hashtype to a checksig operation causes script failure.
+Evaluating a pubkey that is not (0x04 + 64 bytes) or (0x02 or 0x03 + 32 bytes) by checksig causes script failure.
+(softfork safe, but not used or intended as a consensus rule).</p>
+</div><span id='structfield.verify_dersig' class='structfield'>
+                           <span id='verify_dersig.v' class='invisible'>
+                           <code>verify_dersig: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Passing a non-strict-DER signature to a checksig operation causes script failure (softfork safe, BIP62 rule 1)</p>
+</div><span id='structfield.verify_low_s' class='structfield'>
+                           <span id='verify_low_s.v' class='invisible'>
+                           <code>verify_low_s: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Passing a non-strict-DER signature or one with S &gt; order/2 to a checksig operation causes script failure
+(softfork safe, BIP62 rule 5).</p>
+</div><span id='structfield.verify_nulldummy' class='structfield'>
+                           <span id='verify_nulldummy.v' class='invisible'>
+                           <code>verify_nulldummy: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>verify dummy stack item consumed by CHECKMULTISIG is of zero-length (softfork safe, BIP62 rule 7).</p>
+</div><span id='structfield.verify_sigpushonly' class='structfield'>
+                           <span id='verify_sigpushonly.v' class='invisible'>
+                           <code>verify_sigpushonly: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Using a non-push operator in the scriptSig causes script failure (softfork safe, BIP62 rule 2).</p>
+</div><span id='structfield.verify_minimaldata' class='structfield'>
+                           <span id='verify_minimaldata.v' class='invisible'>
+                           <code>verify_minimaldata: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Require minimal encodings for all push operations (OP_0... OP_16, OP_1NEGATE where possible, direct
+pushes up to 75 bytes, OP_PUSHDATA up to 255 bytes, OP_PUSHDATA2 for anything larger). Evaluating
+any other push causes the script to fail (BIP62 rule 3).
+In addition, whenever a stack element is interpreted as a number, it must be of minimal length (BIP62 rule 4).
+(softfork safe)</p>
+</div><span id='structfield.verify_discourage_upgradable_nops' class='structfield'>
+                           <span id='verify_discourage_upgradable_nops.v' class='invisible'>
+                           <code>verify_discourage_upgradable_nops: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Discourage use of NOPs reserved for upgrades (NOP1-10)</p>
+
+<p>Provided so that nodes can avoid accepting or mining transactions
+containing executed NOP&#39;s whose meaning may change after a soft-fork,
+thus rendering the script invalid; with this flag set executing
+discouraged NOPs fails the script. This verification flag will never be
+a mandatory flag applied to scripts in a block. NOPs that are not
+executed, e.g.  within an unexecuted IF ENDIF block, are <em>not</em> rejected.</p>
+</div><span id='structfield.verify_cleanstack' class='structfield'>
+                           <span id='verify_cleanstack.v' class='invisible'>
+                           <code>verify_cleanstack: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Require that only a single stack element remains after evaluation. This changes the success criterion from
+&quot;At least one stack element must remain, and when interpreted as a boolean, it must be true&quot; to
+&quot;Exactly one stack element must remain, and when interpreted as a boolean, it must be true&quot;.
+(softfork safe, BIP62 rule 6)
+Note: CLEANSTACK should never be used without P2SH or WITNESS.</p>
+</div><span id='structfield.verify_clocktimeverify' class='structfield'>
+                           <span id='verify_clocktimeverify.v' class='invisible'>
+                           <code>verify_clocktimeverify: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Verify CHECKLOCKTIMEVERIFY</p>
+
+<p>See BIP65 for details.</p>
+</div><span id='structfield.verify_checksequenceverify' class='structfield'>
+                           <span id='verify_checksequenceverify.v' class='invisible'>
+                           <code>verify_checksequenceverify: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>support CHECKSEQUENCEVERIFY opcode</p>
+
+<p>See BIP112 for details</p>
+</div><span id='structfield.verify_witness' class='structfield'>
+                           <span id='verify_witness.v' class='invisible'>
+                           <code>verify_witness: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Support segregated witness</p>
+</div><span id='structfield.verify_discourage_upgradable_witness_program' class='structfield'>
+                           <span id='verify_discourage_upgradable_witness_program.v' class='invisible'>
+                           <code>verify_discourage_upgradable_witness_program: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Making v1-v16 witness program non-standard</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/flags.rs.html#70-85' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.verify_p2sh' class='method'><span id='verify_p2sh.v-1' class='invisible'><code>fn <a href='#method.verify_p2sh' class='fnname'>verify_p2sh</a>(self, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self</code></span></h4>
+<h4 id='method.verify_clocktimeverify' class='method'><span id='verify_clocktimeverify.v-1' class='invisible'><code>fn <a href='#method.verify_clocktimeverify' class='fnname'>verify_clocktimeverify</a>(self, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self</code></span></h4>
+<h4 id='method.verify_dersig' class='method'><span id='verify_dersig.v-1' class='invisible'><code>fn <a href='#method.verify_dersig' class='fnname'>verify_dersig</a>(self, value: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; Self</code></span></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html' title='core::default::Default'>Default</a> for <a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/flags.rs.html#4' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.default' class='method'><span id='default.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default' class='fnname'>default</a>() -&gt; <a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a></code></span></h4>
+<div class='docblock'><p>Returns the &quot;default value&quot; for a type. <a href="https://doc.rust-lang.org/nightly/core/default/trait.Default.html#tymethod.default">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/flags.rs.html#4' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><span id='fmt.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></span></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../src/script/flags.rs.html#4' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><span id='eq.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><span id='ne.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../script/struct.VerificationFlags.html' title='script::VerificationFlags'>VerificationFlags</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></span></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "script";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

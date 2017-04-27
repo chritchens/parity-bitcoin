@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Options` struct in crate `rocksdb`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Options">
+
+    <title>rocksdb::rocksdb_options::Options - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>rocksdb</a>::<wbr><a href='index.html'>rocksdb_options</a></p><script>window.sidebarCurrent = {name: 'Options', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>rocksdb</a>::<wbr><a href='index.html'>rocksdb_options</a>::<wbr><a class='struct' href=''>Options</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/rocksdb/rocksdb_options.rs.html#35-37' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Options {
+    pub inner: <a class='type' href='../../rocksdb/rocksdb_ffi/type.DBOptions.html' title='rocksdb::rocksdb_ffi::DBOptions'>DBOptions</a>,
+}</pre><h2 class='fields'>Fields</h2><span id='structfield.inner' class='structfield'>
+                           <span id='inner.v' class='invisible'>
+                           <code>inner: <a class='type' href='../../rocksdb/rocksdb_ffi/type.DBOptions.html' title='rocksdb::rocksdb_ffi::DBOptions'>DBOptions</a></code>
+                           </span></span><span class='stab '></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../rocksdb/rocksdb_options/struct.Options.html' title='rocksdb::rocksdb_options::Options'>Options</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocksdb/rocksdb_options.rs.html#141-392' title='goto source code'>[src]</a></span></h3>
+<div class='docblock'><p>/pub fn set_cache(&amp;mut self, cache: rocksdb_ffi::DBCache) {
+/    unsafe {
+/        rocksdb_ffi::rocksdb_block_based_options_set_block_cache(
+/            self.inner, cache);
+/    }
+/}
+/pub fn set_cache_compressed(&amp;mut self, cache: rocksdb_ffi::DBCache) {
+/    unsafe {
+/        rocksdb_ffi::
+rocksdb_block_based_options_set_block_cache_compressed(
+/            self.inner, cache);
+/    }
+/}</p>
+</div><div class='impl-items'><h4 id='method.new' class='method'><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>() -&gt; <a class='struct' href='../../rocksdb/rocksdb_options/struct.Options.html' title='rocksdb::rocksdb_options::Options'>Options</a></code></span></h4>
+<h4 id='method.increase_parallelism' class='method'><span id='increase_parallelism.v' class='invisible'><code>fn <a href='#method.increase_parallelism' class='fnname'>increase_parallelism</a>(&amp;mut self, parallelism: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>)</code></span></h4>
+<h4 id='method.optimize_level_style_compaction' class='method'><span id='optimize_level_style_compaction.v' class='invisible'><code>fn <a href='#method.optimize_level_style_compaction' class='fnname'>optimize_level_style_compaction</a>(&amp;mut self, memtable_memory_budget: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>)</code></span></h4>
+<h4 id='method.create_if_missing' class='method'><span id='create_if_missing.v' class='invisible'><code>fn <a href='#method.create_if_missing' class='fnname'>create_if_missing</a>(&amp;mut self, create_if_missing: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></span></h4>
+<h4 id='method.add_merge_operator' class='method'><span id='add_merge_operator.v' class='invisible'><code>fn <a href='#method.add_merge_operator' class='fnname'>add_merge_operator</a>&lt;'a&gt;(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; merge_fn: fn(_: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, _: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>&gt;, _: &amp;mut <a class='struct' href='../../rocksdb/merge_operator/struct.MergeOperands.html' title='rocksdb::merge_operator::MergeOperands'>MergeOperands</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;)</code></span></h4>
+<h4 id='method.add_comparator' class='method'><span id='add_comparator.v' class='invisible'><code>fn <a href='#method.add_comparator' class='fnname'>add_comparator</a>&lt;'a&gt;(&amp;mut self,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; compare_fn: fn(_: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, _: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>)</code></span></h4>
+<h4 id='method.set_prefix_extractor_fixed_size' class='method'><span id='set_prefix_extractor_fixed_size.v' class='invisible'><code>fn <a href='#method.set_prefix_extractor_fixed_size' class='fnname'>set_prefix_extractor_fixed_size</a>&lt;'a&gt;(&amp;mut self, size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>)</code></span></h4>
+<h4 id='method.set_block_cache_size_mb' class='method'><span id='set_block_cache_size_mb.v' class='invisible'><code>fn <a href='#method.set_block_cache_size_mb' class='fnname'>set_block_cache_size_mb</a>(&amp;mut self, cache_size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></span></h4>
+<h4 id='method.set_max_open_files' class='method'><span id='set_max_open_files.v' class='invisible'><code>fn <a href='#method.set_max_open_files' class='fnname'>set_max_open_files</a>(&amp;mut self, nfiles: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_use_fsync' class='method'><span id='set_use_fsync.v' class='invisible'><code>fn <a href='#method.set_use_fsync' class='fnname'>set_use_fsync</a>(&amp;mut self, useit: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></span></h4>
+<h4 id='method.set_bytes_per_sync' class='method'><span id='set_bytes_per_sync.v' class='invisible'><code>fn <a href='#method.set_bytes_per_sync' class='fnname'>set_bytes_per_sync</a>(&amp;mut self, nbytes: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></span></h4>
+<h4 id='method.set_disable_data_sync' class='method'><span id='set_disable_data_sync.v' class='invisible'><code>fn <a href='#method.set_disable_data_sync' class='fnname'>set_disable_data_sync</a>(&amp;mut self, disable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></span></h4>
+<h4 id='method.set_table_cache_num_shard_bits' class='method'><span id='set_table_cache_num_shard_bits.v' class='invisible'><code>fn <a href='#method.set_table_cache_num_shard_bits' class='fnname'>set_table_cache_num_shard_bits</a>(&amp;mut self, nbits: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_min_write_buffer_number' class='method'><span id='set_min_write_buffer_number.v' class='invisible'><code>fn <a href='#method.set_min_write_buffer_number' class='fnname'>set_min_write_buffer_number</a>(&amp;mut self, nbuf: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_max_write_buffer_number' class='method'><span id='set_max_write_buffer_number.v' class='invisible'><code>fn <a href='#method.set_max_write_buffer_number' class='fnname'>set_max_write_buffer_number</a>(&amp;mut self, nbuf: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_write_buffer_size' class='method'><span id='set_write_buffer_size.v' class='invisible'><code>fn <a href='#method.set_write_buffer_size' class='fnname'>set_write_buffer_size</a>(&amp;mut self, size: <a class='type' href='../../libc/type.size_t.html' title='libc::size_t'>size_t</a>)</code></span></h4>
+<h4 id='method.set_target_file_size_base' class='method'><span id='set_target_file_size_base.v' class='invisible'><code>fn <a href='#method.set_target_file_size_base' class='fnname'>set_target_file_size_base</a>(&amp;mut self, size: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>)</code></span></h4>
+<h4 id='method.set_target_file_size_multiplier' class='method'><span id='set_target_file_size_multiplier.v' class='invisible'><code>fn <a href='#method.set_target_file_size_multiplier' class='fnname'>set_target_file_size_multiplier</a>(&amp;mut self, size: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_min_write_buffer_number_to_merge' class='method'><span id='set_min_write_buffer_number_to_merge.v' class='invisible'><code>fn <a href='#method.set_min_write_buffer_number_to_merge' class='fnname'>set_min_write_buffer_number_to_merge</a>(&amp;mut self, to_merge: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_level_zero_slowdown_writes_trigger' class='method'><span id='set_level_zero_slowdown_writes_trigger.v' class='invisible'><code>fn <a href='#method.set_level_zero_slowdown_writes_trigger' class='fnname'>set_level_zero_slowdown_writes_trigger</a>(&amp;mut self, n: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_level_zero_stop_writes_trigger' class='method'><span id='set_level_zero_stop_writes_trigger.v' class='invisible'><code>fn <a href='#method.set_level_zero_stop_writes_trigger' class='fnname'>set_level_zero_stop_writes_trigger</a>(&amp;mut self, n: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_compaction_style' class='method'><span id='set_compaction_style.v' class='invisible'><code>fn <a href='#method.set_compaction_style' class='fnname'>set_compaction_style</a>(&amp;mut self, style: <a class='enum' href='../../rocksdb/enum.DBCompactionStyle.html' title='rocksdb::DBCompactionStyle'>DBCompactionStyle</a>)</code></span></h4>
+<h4 id='method.set_max_background_compactions' class='method'><span id='set_max_background_compactions.v' class='invisible'><code>fn <a href='#method.set_max_background_compactions' class='fnname'>set_max_background_compactions</a>(&amp;mut self, n: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_max_background_flushes' class='method'><span id='set_max_background_flushes.v' class='invisible'><code>fn <a href='#method.set_max_background_flushes' class='fnname'>set_max_background_flushes</a>(&amp;mut self, n: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>)</code></span></h4>
+<h4 id='method.set_disable_auto_compactions' class='method'><span id='set_disable_auto_compactions.v' class='invisible'><code>fn <a href='#method.set_disable_auto_compactions' class='fnname'>set_disable_auto_compactions</a>(&amp;mut self, disable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></span></h4>
+<h4 id='method.set_block_based_table_factory' class='method'><span id='set_block_based_table_factory.v' class='invisible'><code>fn <a href='#method.set_block_based_table_factory' class='fnname'>set_block_based_table_factory</a>(&amp;mut self, factory: &amp;<a class='struct' href='../../rocksdb/rocksdb_options/struct.BlockBasedOptions.html' title='rocksdb::rocksdb_options::BlockBasedOptions'>BlockBasedOptions</a>)</code></span></h4>
+<h4 id='method.set_parsed_options' class='method'><span id='set_parsed_options.v' class='invisible'><code>fn <a href='#method.set_parsed_options' class='fnname'>set_parsed_options</a>(&amp;mut self, opts: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></span></h4>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../rocksdb/rocksdb_options/struct.Options.html' title='rocksdb::rocksdb_options::Options'>Options</a></code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../src/rocksdb/rocksdb_options.rs.html#47-53' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.drop' class='method'><span id='drop.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop' class='fnname'>drop</a>(&amp;mut self)</code></span></h4>
+<div class='docblock'><p>A method called when the value goes out of scope. <a href="https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#tymethod.drop">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "rocksdb";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>
