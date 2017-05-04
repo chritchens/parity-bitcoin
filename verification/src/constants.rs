@@ -2,8 +2,12 @@
 
 pub const BLOCK_MAX_FUTURE: i64 = 2 * 60 * 60; // 2 hours
 pub const COINBASE_MATURITY: u32 = 100; // 2 hours
-pub const MAX_BLOCK_SIZE: usize = 1_000_000;
-pub const MAX_BLOCK_SIGOPS: usize = 20_000;
+// partial reference:
+// https://github.com/gandrewstone/BitcoinUnlimited/blob/150c86e427187a71bc17ccd32483c98dc9dbfba2/src/consensus/consensus.h
+// differently from the merged code, MAX_BLOCK_SIZE is set to 2Mb. More will be done in successive
+// commits
+pub const MAX_BLOCK_SIZE: usize = 2_000_000; // 2Mb
+pub const MAX_BLOCK_SIGOPS: usize = MAX_BLOCK_SIZE/50;
 pub const MIN_COINBASE_SIZE: usize = 2;
 pub const MAX_COINBASE_SIZE: usize = 100;
 
