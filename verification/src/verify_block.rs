@@ -194,3 +194,51 @@ impl<'a> BlockMerkleRoot<'a> {
 	}
 }
 
+#[cfg(test)]
+mod tests {
+    extern crate chain;
+    extern crate test_data;
+
+    use std::fs::File;
+    use std::io::BufReader;
+    use std::io::prelude::*;
+
+    use super::{ BlockVerifier };
+
+    #[test]
+    fn big_block() {
+        
+        let f = File::open("src/savethechain.tx").unwrap();
+        let mut br = BufReader::new(f);
+        let mut raw = String::new();
+        br.read_to_string(&mut raw).unwrap();
+
+        let big_tx: chain::Transaction = raw.into();
+		
+        let genesis = test_data::block_builder()
+			.transaction()
+				.coinbase()
+				.build()
+			.transaction()
+				.output().value(50).build()
+				.build()
+			.merkled_header().build()
+			.build();
+
+        let big = test_data::block_builder()
+            .transaction()
+                .coinbase()
+                .build()
+            .with_transaction(big_tx)
+			.merkled_header()
+                .parent(genesis.hash())
+                .build()
+            .build();
+
+        let big_indexed: chain::IndexedBlock = big.into();
+
+        let verifier = BlockVerifier::new(&big_indexed);
+        let expected = Ok(());
+        assert_eq!(expected, verifier.check());
+    }
+}

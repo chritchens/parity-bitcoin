@@ -40,6 +40,14 @@ impl From<&'static str> for Block {
 	}
 }
 
+// NB: potential attack vector
+impl From<String> for Block {
+    fn from(s: String) -> Self {
+        let s = s.clone().as_str().from_hex().unwrap();
+        deserialize(s.as_slice()).unwrap()
+    }
+}
+
 impl RepresentH256 for Block {
 	fn h256(&self) -> H256 { self.hash() }
 }

@@ -106,6 +106,14 @@ impl<F> BlockBuilder<F> where F: Invoke<chain::Block> {
 		self
 	}
 
+    // NB: potential attack vector
+	pub fn with_raw_string(mut self, raw: &String) -> Self {
+		let raw_block: chain::Block = raw.clone().into();
+		self.transactions = raw_block.transactions.to_vec();
+		self.header = Some(raw_block.header().clone());
+		self
+	}
+
 	pub fn header(self) -> BlockHeaderBuilder<Self> {
 		BlockHeaderBuilder::with_callback(self)
 	}

@@ -202,6 +202,14 @@ impl From<&'static str> for Transaction {
 	}
 }
 
+// NB: potential attack vector
+impl From<String> for Transaction {
+    fn from(s: String) -> Self {
+        let s = s.clone().as_str().from_hex().unwrap();
+        deserialize(s.as_slice()).unwrap()
+    }
+}
+
 impl HeapSizeOf for Transaction {
 	fn heap_size_of_children(&self) -> usize {
 		self.inputs.heap_size_of_children() + self.outputs.heap_size_of_children()

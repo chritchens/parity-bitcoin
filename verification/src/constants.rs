@@ -7,7 +7,7 @@ pub const COINBASE_MATURITY: u32 = 100; // 2 hours
 // differently from the merged code, MAX_BLOCK_SIZE is set to 2Mb. More will be done in successive
 // commits
 pub const MAX_BLOCK_SIZE: usize = 2_000_000; // 2Mb
-pub const MAX_BLOCK_SIGOPS: usize = MAX_BLOCK_SIZE/50;
+pub const MAX_BLOCK_SIGOPS: usize = MAX_BLOCK_SIZE/50; // 40000
 pub const MIN_COINBASE_SIZE: usize = 2;
 pub const MAX_COINBASE_SIZE: usize = 100;
 
